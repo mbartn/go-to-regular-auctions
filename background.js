@@ -8,7 +8,21 @@ chrome.contextMenus.create({
 });
 
 chrome.contextMenus.onClicked.addListener(function (info, tab) {
-    if (info.menuItemId == "go-to-regular-auctions") {
-        window.alert("yay!");
+        if (info.menuItemId == "go-to-regular-auctions") {
+            goToRegularAuctions(info.pageUrl)
+        }
+
     }
-});
+);
+
+function goToRegularAuctions(searchUrl) {
+    const Http = new XMLHttpRequest();
+    const url = searchUrl + "&p=2";
+    Http.open("GET", url);
+    Http.send();
+
+    Http.onreadystatechange = (e) => {
+        alert(Http.responseText)
+    }
+}
+
