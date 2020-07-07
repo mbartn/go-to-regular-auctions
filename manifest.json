@@ -9,8 +9,20 @@
     ],
     "persistent": false
   },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.allegro.pl/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
   "permissions": [
     "contextMenus",
+    "declarativeContent",
+    "activeTab",
     "*://allegro.pl/*"
   ]
 }
